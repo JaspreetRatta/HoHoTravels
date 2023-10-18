@@ -4,7 +4,7 @@ const app = express();
 require("dotenv").config();
 const bodyParser = require("body-parser");
 const dbConfig = require("./config/dbConfig");
-const port = process.env.PORT || 5001;
+const port = process.env.PORT || 5000;
 
 const usersRoute = require("./routes/usersRoute");
 const busesRoute = require("./routes/busesRoute");
@@ -42,6 +42,18 @@ app.use("/api/pins", pin);
 app.use("/api/review", reviewRoute);
 app.use("/api/profile", profileRoute);
 app.use(express.json());
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+
+app.get("/favicon.ico", (req, res) => {
+  // Return a 204 No Content response to ignore the request
+  res.status(204).end();
+});
+
+app.get("/ahmed", (req, res) => {
+  res.send("It works!");
+});
 
 app.listen(port, () => {
   console.log("Server is running on port " + port);
