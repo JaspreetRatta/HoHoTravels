@@ -2,10 +2,6 @@
   "name": "bus",
   "version": "1.0.0",
   "main": "index.js",
-  "engines": {
-    "node": "18.12.1",
-    "npm": "9.1.2"
-  },
   "scripts": {
     "client-install": "npm install --prefix client",
     "server": "nodemon server.js",
