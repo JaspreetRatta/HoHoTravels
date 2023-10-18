@@ -1,17 +1,30 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { List, Card, message, Button, Typography, Image, Space, Row, Col } from "antd";
-import { DeleteOutlined } from "@ant-design/icons";
+import {
+  List,
+  Card,
+  message,
+  Button,
+  Typography,
+  Image,
+  Space,
+  Row,
+  Col,
+} from "antd";
+import { useSelector } from "react-redux";
 const { Title, Text } = Typography;
 
 function MemoryList() {
   const [memories, setMemories] = useState([]);
+  const { user } = useSelector((state) => state.users);
 
   useEffect(() => {
     async function fetchMemories() {
       try {
-        const response = await axios.get("/api/memories/get-all-memories");
+        const response = await axios.post("/api/memories/get-all-memories", {
+          user: user._id,
+        });
         setMemories(response.data.data);
       } catch (error) {
         console.error("Error fetching memories:", error);
@@ -19,7 +32,7 @@ function MemoryList() {
       }
     }
     fetchMemories();
-  }, []);
+  }, [user]);
 
   const handleDelete = async (id) => {
     try {
@@ -47,7 +60,6 @@ function MemoryList() {
               extra={
                 <Button
                   danger
-                  
                   onClick={(e) => {
                     handleDelete(memory._id);
                   }}
@@ -58,7 +70,7 @@ function MemoryList() {
             >
               <Space direction="vertical" size={12}>
                 <Text strong>{memory.location}</Text>
-                
+
                 {memory.images && memory.images[0] && (
                   <Row justify="center">
                     <Col span={12} offset={6} style={{ marginLeft: "6rem" }}>
@@ -81,10 +93,9 @@ function MemoryList() {
               </Space>
             </Card>
           </List.Item>
-        )
-        }
+        )}
       />
-    </div >
+    </div>
   );
 }
 
