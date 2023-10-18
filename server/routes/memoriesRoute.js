@@ -71,6 +71,8 @@ router.get("/get-all-memories", async (req, res) => {
   }
 });
 
+
+
 // Get a memory by ID
 router.get("/get-memory-by-id/:id", async (req, res) => {
   try {
