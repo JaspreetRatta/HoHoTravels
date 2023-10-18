@@ -1,7 +1,7 @@
 {
   "name": "bus",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "client-install": "npm install --prefix client",
     "server": "nodemon server.js",
