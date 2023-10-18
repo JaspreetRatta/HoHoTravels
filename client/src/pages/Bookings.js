@@ -11,6 +11,7 @@ const Bookings = () => {
   const { users } = useSelector((state) => ({ ...state }));
   const [form] = Form.useForm();
   const dispatch = useDispatch();
+  const COMMISSION = 70; // 70 THB commission
   const [showPrintModal, setShowPrintModal] = useState(false);
   const [selectedBooking, setSelectedBooking] = useState(null);
   const [showReview, setShowReview] = useState(false);
@@ -82,6 +83,15 @@ const Bookings = () => {
     {
       title: "Journey Date",
       dataIndex: "journeyDate",
+    },
+    {
+      title: "Price",
+      dataIndex: "fare",
+    },
+    {
+      title: "Commission",
+      dataIndex: "commission",
+      render: () => `฿${COMMISSION}`, // Display the fixed commission
     },
     {
       title: "Discount",
@@ -227,7 +237,8 @@ const Bookings = () => {
             </p>
             <hr />
             <p>
-              <span>Total Amount:</span> {selectedBooking.fare * selectedBooking.seats.length - selectedBooking.discount} /-
+            <span>Total Amount:</span> {(selectedBooking.fare + COMMISSION) * selectedBooking.seats.length - selectedBooking.discount} /-
+
             </p>
           </div>
         </Modal>
