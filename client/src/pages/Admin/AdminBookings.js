@@ -21,8 +21,8 @@ function Bookings() {
     try {
       dispatch(ShowLoading());
       const response = await axiosInstance.post(
-        "/api/bookings/get-all-bookings",
-        "/api/bookings/get-bookings-by-user-id",
+        "https://hohoo-travels.vercel.app/api/bookings/get-all-bookings",
+        "https://hohoo-travels.vercel.app/api/bookings/get-bookings-by-user-id",
 
         {}
       );

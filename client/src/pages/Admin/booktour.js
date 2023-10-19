@@ -23,8 +23,8 @@ function AdminBookingsTour() {
     try {
       dispatch(ShowLoading());
       const response = await axiosInstance.post(
-        "/api/bookings/get-all-bookings-tour",
-        "/get-bookings-by-user-id-tour",
+        "https://hohoo-travels.vercel.app/api/bookings/get-all-bookings-tour",
+        "https://hohoo-travels.vercel.app/get-bookings-by-user-id-tour",
         {}
       );
       dispatch(HideLoading());

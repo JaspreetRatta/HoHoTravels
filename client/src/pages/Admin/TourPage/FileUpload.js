@@ -31,7 +31,7 @@ const FileUpload = ({ values, setValues}) => {
           0,
           (uri)=>{
             //
-            axiosInstance.post("/api/cloundinary/images",
+            axiosInstance.post("https://hohoo-travels.vercel.app/api/cloundinary/images",
             {
               image:uri
             }

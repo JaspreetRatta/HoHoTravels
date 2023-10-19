@@ -68,7 +68,7 @@ function DDRoom() {
       long: newPlace.long,
     };
     try {
-      const res = await axios.post("/api/pins", newPin);
+      const res = await axios.post("https://hohoo-travels.vercel.app/api/pins", newPin);
       setPins([...pins, res.data]);
       setNewPlace(null);
     } catch (err) {
@@ -79,7 +79,7 @@ function DDRoom() {
   useEffect(() => {
     const getPins = async () => {
       try {
-        const allPins = await axios.get("/api/pins");
+        const allPins = await axios.get("https://hohoo-travels.vercel.app/api/pins");
         setPins(allPins.data);
       } catch (err) {
         console.log(err);

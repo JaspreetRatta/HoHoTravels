@@ -18,7 +18,7 @@ function AdminTour() {
   const getTour = async () => {
     try {
       dispatch(ShowLoading());
-      const response = await axiosInstance.post("/api/tour/list");
+      const response = await axiosInstance.post("https://hohoo-travels.vercel.app/api/tour/list");
       dispatch(HideLoading());
       setTour(response.data);
     } catch (error) {
@@ -30,7 +30,7 @@ function AdminTour() {
   const deleteTour = async (id) => {
     try {
       dispatch(ShowLoading());
-      const response = await axiosInstance.post("/api/tour/remove", {
+      const response = await axiosInstance.post("https://hohoo-travels.vercel.app/api/tour/remove", {
         _id: id,
       });
       dispatch(HideLoading());

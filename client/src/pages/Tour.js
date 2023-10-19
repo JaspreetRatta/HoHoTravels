@@ -14,7 +14,7 @@ function Home() {
   const getBuses = async () => {
     try {
       dispatch(ShowLoading());
-      const response = await axios.post("/api/tour/list");
+      const response = await axios.post("https://hohoo-travels.vercel.app/api/tour/list");
       dispatch(HideLoading());
       setBuses(response.data);
     } catch (error) {
