@@ -64,7 +64,7 @@ const FileUpload = ({ values, setValues}) => {
     const { images } = values;
     axiosInstance
       .post(
-        "/api/cloundinary/removeimages",
+        "https://hohoo-travels.vercel.app/api/cloundinary/removeimages",
         { public_id },
       )
       .then((res) => {

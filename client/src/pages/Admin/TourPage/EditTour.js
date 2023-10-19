@@ -40,7 +40,7 @@ const CreateTour = ({
     console.log(values);
     dispatch(ShowLoading());
     axiosInstance
-      .post("/api/tour/update", {
+      .post("https://hohoo-travels.vercel.app/api/tour/update", {
         ...values,
         _id: selectedBus._id,
       })

@@ -52,7 +52,7 @@ function ShowBus() {
 
   const getReview = () => {
     axiosInstance
-      .post("/api/review/read_bus", {
+      .post("https://hohoo-travels.vercel.app/api/review/read_bus", {
         _id: params.id,
       })
       .then((res) => {
