@@ -2,7 +2,7 @@ import React from "react";
 import { Form, message } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import Nav from "../components/Navbar2";
+
 
 import intro from "../resourses/intro.png";
 
@@ -16,7 +16,7 @@ function Login() {
   const onFinish = async (values) => {
     try {
       dispatch(ShowLoading());
-      const response = await axios.post("/api/users/login", values);
+      const response = await axios.post("https://hohoo-travels.vercel.app/api/users/login", values);
       dispatch(HideLoading());
       if (response.data.success) {
         message.success(response.data.message);
