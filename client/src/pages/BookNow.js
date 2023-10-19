@@ -65,7 +65,7 @@ function BookNow() {
   const getBus = async () => {
     try {
       dispatch(ShowLoading());
-      const response = await axiosInstance.post('/api/buses/get-bus-by-id', {
+      const response = await axiosInstance.post('https://hohoo-travels.vercel.app/api/buses/get-bus-by-id', {
         _id: params.id,
       });
       dispatch(HideLoading());
@@ -106,7 +106,7 @@ function BookNow() {
     try {
       dispatch(ShowLoading());
       const totalFareWithCommission = (bus.fare + COMMISSION) * selectedSeats.length * 100; // Adding the commission to the original fare
-      const response = await axiosInstance.post('/api/bookings/make-payment', {
+      const response = await axiosInstance.post('https://hohoo-travels.vercel.app/api/bookings/make-payment', {
         token,
         amount: totalFareWithCommission, // using the fare including commission
       });

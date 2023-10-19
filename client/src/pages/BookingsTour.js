@@ -127,7 +127,7 @@ const BookingsTour = () => {
   const getBookings = async () => {
     try {
       dispatch(ShowLoading());
-      const response = await axiosInstance.post('/api/bookings/get-bookings-by-user-id-tour', {});
+      const response = await axiosInstance.post('https://hohoo-travels.vercel.app/api/bookings/get-bookings-by-user-id-tour', {});
       dispatch(HideLoading());
       if (response.data.success) {
         const mappedData = response.data.data.map((booking) => {

@@ -22,7 +22,7 @@ function MemoryList() {
   useEffect(() => {
     async function fetchMemories() {
       try {
-        const response = await axios.post("/api/memories/get-all-memories", {
+        const response = await axios.post("https://hohoo-travels.vercel.app/api/memories/get-all-memories", {
           user: user._id,
         });
         setMemories(response.data.data);

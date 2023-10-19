@@ -41,7 +41,7 @@ const ShowMore = () => {
 
   const handleDelete = async () => {
     try {
-      const response = await axios.post("/api/memories/delete-memory", { _id: id });
+      const response = await axios.post("https://hohoo-travels.vercel.app/api/memories/delete-memory", { _id: id });
       notification.success({ message: response.data.message });
       navigate(-1, { replace: true });
     } catch (error) {
@@ -52,7 +52,7 @@ const ShowMore = () => {
 
   const handleEdit = async () => {
     try {
-      const response = await axios.post("/api/memories/update-memory", {
+      const response = await axios.post("https://hohoo-travels.vercel.app/api/memories/update-memory", {
         _id: id,
         title: edit.title ? edit.title : memories?.title,
         description: edit.description ? edit.description : memories?.description,

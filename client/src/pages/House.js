@@ -21,7 +21,7 @@ const House = () => {
   const getTour = async () => {
     try {
       dispatch(ShowLoading());
-      const response = await axios.post("/api/tour/list-tour");
+      const response = await axios.post("https://hohoo-travels.vercel.app/api/tour/list-tour");
       dispatch(HideLoading());
       setTour(response.data);
     } catch (error) {
