@@ -5,6 +5,7 @@ require("dotenv").config();
 const bodyParser = require("body-parser");
 const dbConfig = require("./config/dbConfig");
 const port = process.env.PORT || 5000;
+const cors = require("cors");
 
 const usersRoute = require("./routes/usersRoute");
 const busesRoute = require("./routes/busesRoute");
@@ -29,7 +30,8 @@ app.use(
     limit: "50mb",
   })
 );
-
+//cors
+app.use(cors())
 // Route
 app.use("/api/users", usersRoute);
 app.use("/api/buses", busesRoute);
