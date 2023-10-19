@@ -37,7 +37,7 @@ function BookNow() {
   const onGetProfile = async () => {
     try {
       dispatch(ShowLoading());
-      const response = await axiosInstance.post('/api/users/get-point-user-by-id');
+      const response = await axiosInstance.post('https://hohoo-travels.vercel.app/api/users/get-point-user-by-id');
       dispatch(HideLoading());
       if (response.data.success) {
         const point = response.data.data;
@@ -51,7 +51,7 @@ function BookNow() {
 
   const onGetCoupon = async () => {
     try {
-      const response = await axiosInstance.post('/api/coupons/list-coupon');
+      const response = await axiosInstance.post('https://hohoo-travels.vercel.app/api/coupons/list-coupon');
       dispatch(HideLoading());
       if (response.data) {
         const coupons = response.data.filter((x) => x.point <= point);
@@ -83,7 +83,7 @@ function BookNow() {
   const bookNow = async (transactionId) => {
     try {
       dispatch(ShowLoading());
-      const response = await axiosInstance.post('/api/bookings/book-seat', {
+      const response = await axiosInstance.post('https://hohoo-travels.vercel.app/api/bookings/book-seat', {
         bus: bus._id,
         seats: selectedSeats,
         discount: checkDiscount ? discount.point : 0,

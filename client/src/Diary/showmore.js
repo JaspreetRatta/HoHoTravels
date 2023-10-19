@@ -27,7 +27,7 @@ const ShowMore = () => {
   useEffect(() => {
     const fetchMemoriesById = async () => {
       try {
-        const response = await axios.get(`/api/memories/get-memory-by-id/${id}`);
+        const response = await axios.get(`https://hohoo-travels.vercel.app/api/memories/get-memory-by-id/${id}`);
         setMemories(response.data.data);
         setLoading(false);
       } catch (error) {

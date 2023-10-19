@@ -33,7 +33,7 @@ const House = () => {
   const getBuses = async () => {
     try {
       dispatch(ShowLoading());
-      const response = await axios.post("/api/buses/list-bus");
+      const response = await axios.post("https://hohoo-travels.vercel.app/api/buses/list-bus");
       dispatch(HideLoading());
       setBus(response.data);
     } catch (error) {

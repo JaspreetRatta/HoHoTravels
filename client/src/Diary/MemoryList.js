@@ -36,7 +36,7 @@ function MemoryList() {
 
   const handleDelete = async (id) => {
     try {
-      const response = await axios.post("/api/memories/delete-memory", {
+      const response = await axios.post("https://hohoo-travels.vercel.app/api/memories/delete-memory", {
         _id: id,
       });
       console.log("Memory deleted :", response.data);

@@ -39,7 +39,7 @@ const Bookings = () => {
     };
 
     try {
-      const response = await axiosInstance.post("/api/review/create", tempValuesReview);
+      const response = await axiosInstance.post("https://hohoo-travels.vercel.app/api/review/create", tempValuesReview);
       console.log(response.data);
       getBookings();
       form.resetFields();
@@ -144,7 +144,7 @@ const Bookings = () => {
   const getBookings = async () => {
     try {
       dispatch(ShowLoading());
-      const response = await axiosInstance.post("/api/bookings/get-bookings-by-user-id", {});
+      const response = await axiosInstance.post("https://hohoo-travels.vercel.app/api/bookings/get-bookings-by-user-id", {});
       dispatch(HideLoading());
       if (response.data.success) {
         const mappedData = response.data.data.map((booking) => {

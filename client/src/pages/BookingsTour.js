@@ -38,7 +38,7 @@ const BookingsTour = () => {
     };
 
     try {
-      const response = await axiosInstance.post('/api/review/create_review', tempValuesReview);
+      const response = await axiosInstance.post('https://hohoo-travels.vercel.app/api/review/create_review', tempValuesReview);
       console.log(response.data);
       getBookings();
       form.resetFields();
