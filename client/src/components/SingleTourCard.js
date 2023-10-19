@@ -104,7 +104,7 @@ const SingleTourCard = () => {
   const getTour = async () => {
     try {
       dispatch(ShowLoading());
-      const response = await axiosInstance.post('https://thebus-rho.vercel.app/api/tour/read', {
+      const response = await axiosInstance.post('https://hohoo-travels.vercel.app/api/tour/read', {
         _id: params.id,
       });
       dispatch(HideLoading());
