@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { format } from "timeago.js";
+
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import StarIcon from "@mui/icons-material/Star";
 import axios from "axios";
@@ -151,7 +151,17 @@ function DDRoom() {
                 <span className="username">
                   Created <b> </b>
                 </span>
-                <span className="date">{format(p.createdAt)}</span>
+                <span>
+  <span className="date">
+    {new Date(p.createdAt).toLocaleDateString("en-US", {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    })}
+  </span>
+</span>
+
+
               </div>
             </Popup>
           )}
