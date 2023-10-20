@@ -123,11 +123,7 @@ const CreateTour = ({
               onChange={handleChange}
             />
           </div>
-          <Col lg={12} xs={24}>
-            <Form.Item label="Package left" name="package">
-              <input type="text" />
-            </Form.Item>
-          </Col>
+         
 
           <div className="form-group">
             <label>Details</label>

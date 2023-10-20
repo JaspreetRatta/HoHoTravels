@@ -56,7 +56,7 @@ function AddMemory() {
       // Append other profile fields to the formData
 
       dispatch(ShowLoading());
-      const response = await axios.post(`https://hohoo-travels.vercel.app/api/memories/add-memory`, formData, {
+      const response = await axios.post("https://hohoo-travels.vercel.app/api/memories/add-memory", formData, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
           "Content-Type": "multipart/form-data",
@@ -89,6 +89,7 @@ function AddMemory() {
   };
 
   const handleChange = ({ fileList: newFileList }) => {
+    
     newFileList = newFileList.map((x) => ({ ...x, status: "done" }));
     setFileList(newFileList);
   };
@@ -170,7 +171,7 @@ function AddMemory() {
                   </Tooltip>
                 </span>
               }
-              name="images"
+              name="image"
             >
               <Upload
                 listType="picture-card"

@@ -96,6 +96,7 @@ function DDRoom() {
     <Map
       user={user}
       mapboxAccessToken="pk.eyJ1IjoidHJpcHB5a3VkaSIsImEiOiJjbG5qOXd4d3MwYXp2MmlwMjk4MmY1ajI5In0.J7BjYa3JSxWF8dXNbzwpTA"
+     mapboxApiAccessToken={process.env.REACT_APP_MAPBOX}
       onViewportChange={viewport}
       width="100%"
       height="100%"
@@ -178,7 +179,7 @@ function DDRoom() {
             <LocationOnIcon
               style={{
                 fontSize: 7 * viewport.zoom,
-                color: "tomato",
+                color: "blue",
                 cursor: "pointer",
               }}
             />

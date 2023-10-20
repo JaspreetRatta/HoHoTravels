@@ -31,11 +31,15 @@ const FileUpload = ({ values, setValues}) => {
           0,
           (uri)=>{
             //
-            axiosInstance.post("https://hohoo-travels.vercel.app/api/cloundinary/images",
+            axiosInstance.post("https://hohoo-travels.vercel.app/api/cloundinary/images"
+            ,"https://hohoo-travels.vercel.app/api/cloundinary/image" ,
+            "https://hohoo-travels.vercel.app/api/cloundinary/avatar",
+            
             {
               image:uri
             }
           ).then(res=>{
+            
   
             allfileUpload.push(res.data);
             // console.log("allfileupload in then", allfileUpload);
