@@ -9,7 +9,11 @@
     "routes": [
         {
             "src": "/(.*)",
+<<<<<<< HEAD
             "dest": "/"
+=======
+            "dest": "/server.js"
+>>>>>>> 501cafe1cd16251b928ad9581ff1d06a9397c0f1
         }
     ]
 }

@@ -12,9 +12,9 @@ function CouponForm({ showCouponForm, setShowCouponForm, type = 'add', getData, 
       dispatch(ShowLoading());
       let response = null;
       if (type === 'add') {
-        response = await axiosInstance.post('/api/coupons/add-coupon', values);
+        response = await axiosInstance.post('https://hohoo-travels.vercel.app/api/coupons/add-coupon', values);
       } else {
-        response = await axiosInstance.post('/api/coupons/update-coupon', {
+        response = await axiosInstance.post('https://hohoo-travels.vercel.app/api/coupons/update-coupon', {
           ...values,
           _id: selectedCoupon._id,
         });

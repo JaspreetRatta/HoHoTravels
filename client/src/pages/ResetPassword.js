@@ -12,7 +12,7 @@ function ResetPassword() {
       dispatch(ShowLoading());
       // Send a request to your API to reset the password
       // using the provided email and new password
-      const response = await axios.post("/api/users/reset-password", values);
+      const response = await axios.post("https://hohoo-travels.vercel.app/api/users/reset-password", values);
       dispatch(HideLoading());
       if (response.data.success) {
         message.success(response.data.message);

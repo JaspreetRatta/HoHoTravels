@@ -16,7 +16,7 @@ function ProtectedRoute({ children }) {
     try {
       dispatch(ShowLoading());
       const response = await axios.post(
-        "/api/users/get-user-by-id",
+        "https://hohoo-travels.vercel.app/api/users/get-user-by-id",
         {},
         {
           headers: {

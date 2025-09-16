@@ -37,7 +37,7 @@ function BookNow() {
   const onGetProfile = async () => {
     try {
       dispatch(ShowLoading());
-      const response = await axiosInstance.post('/api/users/get-point-user-by-id');
+      const response = await axiosInstance.post('https://hohoo-travels.vercel.app/api/users/get-point-user-by-id');
       dispatch(HideLoading());
       if (response.data.success) {
         const point = response.data.data;
@@ -51,7 +51,7 @@ function BookNow() {
 
   const onGetCoupon = async () => {
     try {
-      const response = await axiosInstance.post('/api/coupons/list-coupon');
+      const response = await axiosInstance.post('https://hohoo-travels.vercel.app/api/coupons/list-coupon');
       dispatch(HideLoading());
       if (response.data) {
         const coupons = response.data.filter((x) => x.point <= point);
@@ -65,7 +65,7 @@ function BookNow() {
   const getBus = async () => {
     try {
       dispatch(ShowLoading());
-      const response = await axiosInstance.post('/api/buses/get-bus-by-id', {
+      const response = await axiosInstance.post('https://hohoo-travels.vercel.app/api/buses/get-bus-by-id', {
         _id: params.id,
       });
       dispatch(HideLoading());
@@ -83,7 +83,7 @@ function BookNow() {
   const bookNow = async (transactionId) => {
     try {
       dispatch(ShowLoading());
-      const response = await axiosInstance.post('/api/bookings/book-seat', {
+      const response = await axiosInstance.post('https://hohoo-travels.vercel.app/api/bookings/book-seat', {
         bus: bus._id,
         seats: selectedSeats,
         discount: checkDiscount ? discount.point : 0,
@@ -106,7 +106,11 @@ function BookNow() {
     try {
       dispatch(ShowLoading());
       const totalFareWithCommission = (bus.fare + COMMISSION) * selectedSeats.length * 100; // Adding the commission to the original fare
+<<<<<<< HEAD
       const response = await axiosInstance.post('/api/bookings/make-payment', {
+=======
+      const response = await axiosInstance.post('https://hohoo-travels.vercel.app/api/bookings/make-payment', {
+>>>>>>> 501cafe1cd16251b928ad9581ff1d06a9397c0f1
         token,
         amount: totalFareWithCommission, // using the fare including commission
       });

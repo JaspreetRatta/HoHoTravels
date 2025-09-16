@@ -15,14 +15,15 @@ function Bookings() {
   const [showPrintModal, setShowPrintModal] = useState(false);
   const [selectedBooking, setSelectedBooking] = useState(null);
   const [bookings, setBookings] = useState([]);
+  const COMMISSION = 70; // 70 THB commission
   const [totalEarnings, setTotalEarnings] = useState(0);
   const dispatch = useDispatch();
   const getBookings = async () => {
     try {
       dispatch(ShowLoading());
       const response = await axiosInstance.post(
-        "/api/bookings/get-all-bookings",
-        "/api/bookings/get-bookings-by-user-id",
+        "https://hohoo-travels.vercel.app/api/bookings/get-all-bookings",
+        "https://hohoo-travels.vercel.app/api/bookings/get-bookings-by-user-id",
 
         {}
       );
@@ -86,13 +87,19 @@ function Bookings() {
       key: "bus",
     },
 
+    {
+      title: "Snacks",
+      dataIndex: "commission",
+      render: () => `฿${COMMISSION}`, 
+    },
+  
+
 {
     title: "Discount",
-    dataIndex: "discount", // this should match the field in your booking records
-    key: "discount", // unique key for react list
+    dataIndex: "discount", 
+    key: "discount",
     render: (discount) => {
-      // you can format the value here, this example assumes discount is a number
-      // if discount value is 0, we display 'None', otherwise we display the discount value
+      
       return discount ? `฿${discount}` : 'None';
     },
   },
@@ -185,7 +192,7 @@ function Bookings() {
             <hr />
             <p>
               <span>Total Amount:</span>{" "}
-              {selectedBooking.fare * selectedBooking.seats.length} THB
+              {(selectedBooking.fare + COMMISSION) * selectedBooking.seats.length - selectedBooking.discount} THB
             </p>
           </div>
         </Modal>

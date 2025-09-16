@@ -15,7 +15,7 @@ function AdminCoupons() {
   const getCoupons = async () => {
     try {
       dispatch(ShowLoading());
-      const response = await axiosInstance.post('/api/coupons/get-all-coupons', {});
+      const response = await axiosInstance.post('https://hohoo-travels.vercel.app/api/coupons/get-all-coupons', {});
       dispatch(HideLoading());
       if (response.data.success) {
         setCoupons(response.data.data);
@@ -31,7 +31,7 @@ function AdminCoupons() {
   const deleteCoupon = async (id) => {
     try {
       dispatch(ShowLoading());
-      const response = await axiosInstance.post('/api/coupons/delete-coupon', {
+      const response = await axiosInstance.post('https://hohoo-travels.vercel.app/api/coupons/delete-coupon', {
         _id: id,
       });
       dispatch(HideLoading());

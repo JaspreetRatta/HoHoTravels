@@ -35,7 +35,7 @@ const SingleTourCard = () => {
   const onGetProfile = async () => {
     try {
       dispatch(ShowLoading());
-      const response = await axiosInstance.post('/api/users/get-point-user-by-id');
+      const response = await axiosInstance.post('https://hohoo-travels.vercel.app/api/users/get-point-user-by-id');
       dispatch(HideLoading());
       if (response.data.success) {
         const point = response.data.data;
@@ -48,7 +48,7 @@ const SingleTourCard = () => {
 
   const onGetCoupon = async () => {
     try {
-      const response = await axiosInstance.post('/api/coupons/list-coupon');
+      const response = await axiosInstance.post('https://hohoo-travels.vercel.app/api/coupons/list-coupon');
       dispatch(HideLoading());
       if (response.data) {
         const coupons = response.data.filter((x) => x.point <= point);
@@ -62,7 +62,7 @@ const SingleTourCard = () => {
   const bookNow = async (transactionId) => {
     try {
       dispatch(ShowLoading());
-      const response = await axiosInstance.post('/api/bookings/book-tour', {
+      const response = await axiosInstance.post('https://hohoo-travels.vercel.app/api/bookings/book-tour', {
         tour: tour._id,
         category: 'tour',
         discount: checkDiscount ? discount.point : 0,
@@ -84,7 +84,7 @@ const SingleTourCard = () => {
   const onToken = async (token) => {
     try {
       dispatch(ShowLoading());
-      const response = await axiosInstance.post('/api/bookings/make-payment', {
+      const response = await axiosInstance.post('https://hohoo-travels.vercel.app/api/bookings/make-payment', {
         token,
         amount: tour.price * 100,
       });
@@ -104,7 +104,7 @@ const SingleTourCard = () => {
   const getTour = async () => {
     try {
       dispatch(ShowLoading());
-      const response = await axiosInstance.post('/api/tour/read', {
+      const response = await axiosInstance.post('https://hohoo-travels.vercel.app/api/tour/read', {
         _id: params.id,
       });
       dispatch(HideLoading());
@@ -121,7 +121,7 @@ const SingleTourCard = () => {
 
   const getReviewTour = () => {
     axiosInstance
-      .post('/api/review/read_tour', {
+      .post('https://hohoo-travels.vercel.app/api/review/read_tour', {
         _id: params.id,
       })
       .then((res) => {

@@ -18,7 +18,7 @@ function AdminUsers() {
   const getUsers = async () => {
     try {
       dispatch(ShowLoading());
-      const response = await axiosInstance.post("/api/users/get-all-users", {});
+      const response = await axiosInstance.post("https://hohoo-travels.vercel.app/api/users/get-all-users", {});
       dispatch(HideLoading());
       if (response.data.success) {
         setUsers(response.data.data); // Set user data if response is successful
@@ -63,7 +63,7 @@ function AdminUsers() {
 
       dispatch(ShowLoading());
       const response = await axiosInstance.post(
-        "/api/users/update-user-permissions",
+        "https://hohoo-travels.vercel.app/api/users/update-user-permissions",
         payload
       );
       dispatch(HideLoading());

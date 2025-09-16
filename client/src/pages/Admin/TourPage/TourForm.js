@@ -26,9 +26,9 @@ function TourForm({
       dispatch(ShowLoading());
       let response = null;
       if (type === "add") {
-        response = axiosInstance.post("/api/tour/create", values);
+        response = axiosInstance.post("https://hohoo-travels.vercel.app/api/tour/create", values);
       } else {
-        response = axiosInstance.post("/api/tour/update", {
+        response = axiosInstance.post("https://hohoo-travels.vercel.app/api/tour/update", {
           ...values,
           _id: selectedTour._id,
         });

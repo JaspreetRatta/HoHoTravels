@@ -35,7 +35,7 @@ function ShowBus() {
   const getBus = async () => {
     try {
       dispatch(ShowLoading());
-      const response = await axiosInstance.post("/api/buses/get-bus-by-id", {
+      const response = await axiosInstance.post("https://hohoo-travels.vercel.app/api/buses/get-bus-by-id", {
         _id: params.id,
       });
       dispatch(HideLoading());
@@ -52,7 +52,7 @@ function ShowBus() {
 
   const getReview = () => {
     axiosInstance
-      .post("/api/review/read_bus", {
+      .post("https://hohoo-travels.vercel.app/api/review/read_bus", {
         _id: params.id,
       })
       .then((res) => {

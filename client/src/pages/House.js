@@ -21,7 +21,7 @@ const House = () => {
   const getTour = async () => {
     try {
       dispatch(ShowLoading());
-      const response = await axios.post("/api/tour/list-tour");
+      const response = await axios.post("https://hohoo-travels.vercel.app/api/tour/list-tour");
       dispatch(HideLoading());
       setTour(response.data);
     } catch (error) {
@@ -33,7 +33,7 @@ const House = () => {
   const getBuses = async () => {
     try {
       dispatch(ShowLoading());
-      const response = await axios.post("/api/buses/list-bus");
+      const response = await axios.post("https://hohoo-travels.vercel.app/api/buses/list-bus");
       dispatch(HideLoading());
       setBus(response.data);
     } catch (error) {
@@ -126,7 +126,7 @@ const House = () => {
             <div className="col-md-4">
               <div className="card">
                 <div className="card-body">
-                  <i className="fa fa-bar-chart myicon"></i>
+                  
                   <h1>Save Memories</h1>
                   <p>
                     Travel is more than just reaching a destination; it's about the stories, experiences, and memories we create along the way. With our "Save Travel Memory" function, HoHo Travels ensures that every moment of your journey is preserved. Whether it's a breathtaking sunset you witnessed from the bus window, a heartwarming interaction with a fellow traveler, or the thrill of exploring a new city, our system allows you to capture and store these memories with ease.
@@ -141,7 +141,7 @@ const House = () => {
             <div className="col-md-4">
               <div className="card">
                 <div className="card-body">
-                  <i className="fa fa-bell-o myicon"></i>
+                 
                   <h1>Disussion Room</h1>
                   <p>
                     Connect, share, and grow with the HoHo Travels' Discussion Room.
@@ -156,7 +156,7 @@ const House = () => {
             <div className="col-md-4">
               <div className="card">
                 <div className="card-body">
-                  <i className="fa fa-braille myicon"></i>
+               
                   <h1>Points and Promotions</h1>
                   <p>
                   Travel more, gain more with HoHo Travels' Points and Promotions!
@@ -267,8 +267,7 @@ const House = () => {
                 Ready to travel and create memories with us? Give us a call or send us an
                 email and we will get back to you as soon as possible!
               </p>
-              <i className="fa fa-phone myicon text-warning"></i>
-              <i className="fa fa-heart myicon text-danger"></i>
+           
               <p>+66869808102</p>
               <p>travelshoho@gmail.com</p>
             </Col>

@@ -3,33 +3,40 @@ const fs = require("fs");
 const path = require("path");
 const Memory = require("../models/memoryModel");
 const authMiddleware = require("../middlewares/authMiddleware");
-const upload = require('../config/multer.js');
-const { uploadFile } = require("../middlewares/cloudinary.js")
+const upload = require("../config/multer.js");
+const { uploadFile } = require("../middlewares/cloudinary.js");
 
 // add-memory
-router.post("/add-memory", upload.fields([{ name: 'images', maxCount: 20 }]), async (req, res) => {
-  try {
-    let body = req.body;
-    const images = [];
-    if (req?.files['images']) {
-      for (const file of req.files['images']) {
-        const fileName = path.resolve(__dirname, '../uploads/' + file.filename)
-        const result = await uploadFile(fileName, 'memory')
-        images.push(result.url);
-        fs.unlinkSync(fileName);
+router.post(
+  "/add-memory",
+  upload.fields([{ name: "images", maxCount: 20 }]),
+  async (req, res) => {
+    try {
+      let body = req.body;
+      const images = [];
+      if (req?.files["images"]) {
+        for (const file of req.files["images"]) {
+          const fileName = path.resolve(
+            __dirname,
+            "../uploads/" + file.filename
+          );
+          const result = await uploadFile(fileName, "memory");
+          images.push(result.url);
+          fs.unlinkSync(fileName);
+        }
       }
+      body.images = images;
+      const newMemory = new Memory(body);
+      await newMemory.save();
+      return res.status(200).send({
+        success: true,
+        message: "Memory added successfully",
+      });
+    } catch (error) {
+      res.status(500).send({ success: false, message: error.message });
     }
-    body.images = images;
-    const newMemory = new Memory(body);
-    await newMemory.save();
-    return res.status(200).send({
-      success: true,
-      message: "Memory added successfully",
-    });
-  } catch (error) {
-    res.status(500).send({ success: false, message: error.message });
   }
-});
+);
 
 // update-memory
 router.post("/update-memory", async (req, res) => {
@@ -58,9 +65,11 @@ router.post("/delete-memory", async (req, res) => {
 });
 
 // get-all-memories
-router.get("/get-all-memories", async (req, res) => {
+router.post("/get-all-memories", async (req, res) => {
   try {
-    const memories = await Memory.find(req.body);
+    const user = req.body.user;
+    const memories = await Memory.find({ user });
+    // const memories = await Memory.find(req.body);
     return res.status(200).send({
       success: true,
       message: "Memories fetched successfully",
@@ -70,6 +79,8 @@ router.get("/get-all-memories", async (req, res) => {
     res.status(500).send({ success: false, message: error.message });
   }
 });
+
+
 
 // Get a memory by ID
 router.get("/get-memory-by-id/:id", async (req, res) => {

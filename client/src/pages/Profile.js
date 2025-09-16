@@ -29,7 +29,7 @@ function ProfilePage() {
     try {
       dispatch(ShowLoading());
       const response = await axios.post(
-        '/api/users/get-user-by-id',
+        'https://hohoo-travels.vercel.app/api/users/get-user-by-id',
         {},
         {
           headers: {
@@ -50,7 +50,7 @@ function ProfilePage() {
   const onGetCoupon = async () => {
     try {
       const response = await axios.post(
-        '/api/coupons/list-coupon',
+        'https://hohoo-travels.vercel.app/api/coupons/list-coupon',
         {},
         {
           headers: {
@@ -81,7 +81,7 @@ function ProfilePage() {
       if (values.password_new) formData.append('password', values.password_new);
       // Append other profile fields to the formData
       dispatch(ShowLoading());
-      const response = await axios.put(`/api/profile/${user._id}`, formData, {
+      const response = await axios.put(`https://hohoo-travels.vercel.app/api/profile/${user._id}`, formData, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
           'Content-Type': 'multipart/form-data',

@@ -20,9 +20,9 @@ function BusForm({
       dispatch(ShowLoading());
       let response = null;
       if (type === "add") {
-        response = await axiosInstance.post("/api/buses/add-bus", values);
+        response = await axiosInstance.post("https://hohoo-travels.vercel.app/api/buses/add-bus", values);
       } else {
-        response = await axiosInstance.post("/api/buses/update-bus", {
+        response = await axiosInstance.post("https://hohoo-travels.vercel.app/api/buses/update-bus", {
           ...values,
           _id: selectedBus._id,
         });

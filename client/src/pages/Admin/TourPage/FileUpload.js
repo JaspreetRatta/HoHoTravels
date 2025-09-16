@@ -31,11 +31,15 @@ const FileUpload = ({ values, setValues}) => {
           0,
           (uri)=>{
             //
-            axiosInstance.post("/api/cloundinary/images",
+            axiosInstance.post("https://hohoo-travels.vercel.app/api/cloundinary/images"
+            ,"https://hohoo-travels.vercel.app/api/cloundinary/image" ,
+            "https://hohoo-travels.vercel.app/api/cloundinary/avatar",
+            
             {
               image:uri
             }
           ).then(res=>{
+            
   
             allfileUpload.push(res.data);
             // console.log("allfileupload in then", allfileUpload);
@@ -64,7 +68,7 @@ const FileUpload = ({ values, setValues}) => {
     const { images } = values;
     axiosInstance
       .post(
-        "/api/cloundinary/removeimages",
+        "https://hohoo-travels.vercel.app/api/cloundinary/removeimages",
         { public_id },
       )
       .then((res) => {
