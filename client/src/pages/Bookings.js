@@ -89,7 +89,7 @@ const Bookings = () => {
       dataIndex: "fare",
     },
     {
-      title: "Commission",
+      title: "Snacks",
       dataIndex: "commission",
       render: () => `฿${COMMISSION}`, // Display the fixed commission
     },

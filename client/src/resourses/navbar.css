@@ -46,6 +46,16 @@ nav a {
 	text-decoration: none;
 }
 
+.user-menu-item {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 1rem;
+    width: 110px;
+	color: var(--textColor);
+	text-decoration: none;
+}
+
 nav a:hover {
 	color: var(--secondaryColor);
 }

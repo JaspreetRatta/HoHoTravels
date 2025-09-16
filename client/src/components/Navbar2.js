@@ -44,6 +44,8 @@ function Navbar2({ activeRoute, user, userMenu, navigate }) {
                     </Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
+              
+
               ) : (
                 <div onClick={() => {
                   if (item.path === "/logout") {
